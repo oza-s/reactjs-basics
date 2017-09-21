@@ -3,10 +3,18 @@
   "version": "1.0.0",
   "description": "Some basic ReactJS",
   "main": "index.js",
-  "scripts": {
-    "start": "npm run build",
-    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot",
+  "scripts": {  //we are going to create our own script. This is how we create scripts in npm.
+    "start": "npm run build", //this will be our development build process. This will run our build script.
+    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot --port 8080",
+    // webpack: it automatically finds the webpack file because we named it webpack.config.js
+    // -d : to run in development mode. This will transpile our code and bundlw it. We are not done yet.
+    // cpy src/index.html dist/index.html: this copies index.html file from src to dist folder.
+    // --content-base src/ : tells the server that our content comes from src folder which is important for development server.
+    // --inline: to change the way server displays everything.
+    // --hot: for hot reloading
+    // --port: your desired port number
     "build:prod": "webpack -p && cp src/index.html dist/index.html"
+    // -p: which will minify and run it in production mode.
   },
   "keywords": [
     "reactjs"
